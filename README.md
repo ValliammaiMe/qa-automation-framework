@@ -1,3 +1,4 @@
+[![API Tests](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/api-tests.yml/badge.svg)](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/api-tests.yml)
 # QA Automation Framework
 
 End-to-end test automation framework covering API automation using Postman and Playwright, and UI automation using Playwright.
