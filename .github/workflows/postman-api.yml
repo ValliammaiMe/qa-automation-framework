@@ -2,40 +2,52 @@ name: Postman API Tests (Core)
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      [ main ]
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 17 * * *"   # Daily at midnight UTC
 
 jobs:
-  run-postman-tests:
+  automated-api-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install and run Postman CLI
-        shell: bash
+      - name: Install Postman CLI
         run: |
-          curl -sL https://dl-cli.pstmn.io/install/linux64.sh | sh
-          export PATH="$PATH:$HOME/.postman"
-          postman login --with-api-key "${{ secrets.POSTMAN_API_KEY }}"
-          name: Postman API Tests (Core)
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
 
-on:
-  push:
-    branches: [ main ]
+      - name: Login to Postman CLI (using API Key)
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
 
-jobs:
-  run-postman-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Install and run Postman CLI
-        shell: bash
+      - name: Run API Tests (HTML + JUnit Reports)
         run: |
-          curl -sL https://dl-cli.pstmn.io/install/linux64.sh | sh
-          export PATH="$PATH:$HOME/.postman"
-          postman login --with-api-key "${{ secrets.POSTMAN_API_KEY }}"
-          postman collection run "COLLECTION_UID_CORE" -e "ENV_UID"
+          postman collection run "46701380-0865a434-1493-44c0-a8d2-54697cf8b8d9" -e "46701380-9eb25a31-affe-4a89-83d5-646bd2f110d5" \
+            --reporters junit,html \
+            --reporter-junit-export postman_report.xml \
+            --reporter-html-export postman_report.html
+
+      - name: Debug - List directory
+        run: ls -lah
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Postman-HTML-Report
+          path: postman_report.html
+          retention-days: 7
+
+      - name: Upload JUnit Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Postman-JUnit-Report
+          path: postman_report.xml
+          retention-days: 7
+
+      - name: Finish Job
+        run: echo "API Tests finished with HTML + JUnit reports."
