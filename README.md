@@ -33,9 +33,3 @@ playwright/ → API and UI automation tests
 ---
 
 This project is designed to demonstrate real-world QA automation practices with a clear separation of API and UI layers.
-
-
-
-
-
-## Project Structure
