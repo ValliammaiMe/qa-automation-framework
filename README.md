@@ -47,4 +47,10 @@ This project is designed to demonstrate real-world QA automation practices with 
 
 ---
 
-⭐ **Star this repo if you find it helpful!**
+<div align="center">
+
+**⭐ Star this repo if you find it helpful!**
+
+Made with ❤️ for QA Automation
+
+</div>
