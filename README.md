@@ -34,3 +34,17 @@ playwright/ → API and UI automation tests
 ---
 
 This project is designed to demonstrate real-world QA automation practices with a clear separation of API and UI layers.
+
+## 📧 Contact
+
+**Valliammai Me** - QA Automation Engineer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://linkedin.com/in/valli-m-professionalqa2/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/ValliammaiMe)
+
+
+💼 Open to QA Automation opportunities  
+
+---
+
+⭐ **Star this repo if you find it helpful!**
