@@ -35,7 +35,7 @@ jobs:
         run: |
           postman collection run "46701380-f03802e1-b0d3-4325-950f-b31b638bb326" \
             -e "46701380-9eb25a31-affe-4a89-83d5-646bd2f110d5" \
-            -d postman/data/test-data.csv \
+            -d postman/data/TestDataforproductcreation01.csv \
             --reporters junit,html \
             --reporter-junit-export postman_data_junit.xml \
             --reporter-html-export postman_data_report.html
