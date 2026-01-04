@@ -12,14 +12,30 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install Postman CLI
+      - name: Install and run Postman CLI
+        shell: bash
         run: |
-          curl -o "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-          echo "$HOME/.postman" >> $GITHUB_PATH
+          curl -sL https://dl-cli.pstmn.io/install/linux64.sh | sh
+          export PATH="$PATH:$HOME/.postman"
+          postman login --with-api-key "${{ secrets.POSTMAN_API_KEY }}"
+          name: Postman API Tests (Core)
 
-      - name: Login to Postman
-        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+on:
+  push:
+    branches: [ main ]
 
-      - name: Run Core API collection
+jobs:
+  run-postman-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install and run Postman CLI
+        shell: bash
         run: |
-          postman collection run "46701380-f03802e1-b0d3-4325-950f-b31b638bb326" -e "46701380-9eb25a31-affe-4a89-83d5-646bd2f110d5"
+          curl -sL https://dl-cli.pstmn.io/install/linux64.sh | sh
+          export PATH="$PATH:$HOME/.postman"
+          postman login --with-api-key "${{ secrets.POSTMAN_API_KEY }}"
+          postman collection run "COLLECTION_UID_CORE" -e "ENV_UID"
