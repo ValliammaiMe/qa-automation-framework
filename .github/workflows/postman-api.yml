@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "0 17 * * *"   # Daily at midnight UTC
+      - cron: "0 0 */14 * 0"  # 14 days once in UTC
 
 jobs:
   automated-api-tests:
@@ -25,12 +25,20 @@ jobs:
       - name: Login to Postman CLI (using API Key)
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
 
-      - name: Run API Tests (HTML + JUnit Reports)
+      - name: Run Core API Tests (HTML + JUnit Reports)
         run: |
           postman collection run "46701380-0865a434-1493-44c0-a8d2-54697cf8b8d9" -e "46701380-9eb25a31-affe-4a89-83d5-646bd2f110d5" \
             --reporters junit,html \
             --reporter-junit-export postman_report.xml \
             --reporter-html-export postman_report.html
+      - name: Run Data-Driven API Tests
+        run: |
+          postman collection run "46701380-f03802e1-b0d3-4325-950f-b31b638bb326" \
+            -e "46701380-9eb25a31-affe-4a89-83d5-646bd2f110d5" \
+            -d postman/data/test-data.csv \
+            --reporters junit,html \
+            --reporter-junit-export postman_data_junit.xml \
+            --reporter-html-export postman_data_report.html
 
       - name: Debug - List directory
         run: ls -lah
