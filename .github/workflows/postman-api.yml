@@ -43,19 +43,33 @@ jobs:
       - name: Debug - List directory
         run: ls -lah
 
-      - name: Upload HTML Report
+      - name: Upload HTML Report for Postman API Tests (Core)
         uses: actions/upload-artifact@v4
         with:
           name: Postman-HTML-Report
           path: postman_report.html
-          retention-days: 7
+          retention-days: 30
 
-      - name: Upload JUnit Report
+      - name: Upload JUnit Report for Postman API Tests (Core)
         uses: actions/upload-artifact@v4
         with:
           name: Postman-JUnit-Report
           path: postman_report.xml
-          retention-days: 7
+          retention-days: 30
+
+      - name: Upload HTML Report for Data-Driven API Tests
+        uses: actions/upload-artifact@v4
+        with:
+          name: Postman-HTML-Report_Datadriven
+          path: postman_report2.html
+          retention-days: 30
+
+      - name: Upload JUnit Report for Data-Driven API Tests
+        uses: actions/upload-artifact@v4
+        with:
+          name: Postman-JUnit-Report_Datadriven
+          path: postman_report2.xml
+          retention-days: 30
 
       - name: Finish Job
         run: echo "API Tests finished with HTML + JUnit reports."
