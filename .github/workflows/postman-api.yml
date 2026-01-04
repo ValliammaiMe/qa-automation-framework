@@ -37,8 +37,8 @@ jobs:
             -e "46701380-9eb25a31-affe-4a89-83d5-646bd2f110d5" \
             -d postman/data/TestDataforproductcreation01.csv \
             --reporters junit,html \
-            --reporter-junit-export postman_report.xml \
-            --reporter-html-export postman_report.html
+            --reporter-junit-export postman_report2.xml \
+            --reporter-html-export postman_report2.html
 
       - name: Debug - List directory
         run: ls -lah
