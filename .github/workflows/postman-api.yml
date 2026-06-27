@@ -1,4 +1,4 @@
-name: Postman API Tests (Core)
+name: Postman API Tests (Core) 
 
 on:
   push:
