@@ -1,0 +1,8 @@
+{
+      "article": { 
+        "title": "text",
+        "description": "chikjha",
+        "body": "testing this app via api",
+        "tagList": ["regression"]
+      }
+    }
