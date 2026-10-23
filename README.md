@@ -48,17 +48,6 @@ qa-automation-framework/
 
 Execution
 
-Postman API Tests
-
-Run collections using Postman Runner or Postman CLI.
-
-CI execution through GitHub Actions.
-
-HTML and JUnit reports are uploaded as workflow artifacts.
-
-Playwright API Tests
-
-
 ## Execution
 - Postman: Runner / Postman CLI
 - Playwright: npm scripts
