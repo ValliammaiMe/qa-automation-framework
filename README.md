@@ -26,6 +26,10 @@ End-to-end test automation framework covering API automation using Postman and P
 Project Structure
 
 qa-automation-framework/
+### Project Structure
+
+```text
+qa-automation-framework/
 ├── .github/
 │   └── workflows/
 │       ├── postman-api.yml
@@ -37,9 +41,10 @@ qa-automation-framework/
 │   ├── test-data/
 │   ├── helpers/
 │   ├── request-objects/
-│   ├── utils/
-│   └── package.json
+│   └── utils/
+├── package.json
 └── README.md
+```
 
 Execution
 
