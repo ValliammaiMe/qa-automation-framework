@@ -2,8 +2,9 @@ name: Postman API Tests (Core)
 
 on:
   push:
-    branches:
-      [ main ]
+     paths:
+      - "postman/**"
+      - ".github/workflows/postman-api.yml"
 
   workflow_dispatch:
 
