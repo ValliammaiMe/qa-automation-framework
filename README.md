@@ -23,9 +23,6 @@ End-to-end test automation framework covering API automation using Postman and P
 - Node.js
 - GitHub Actions (CI)
 
-Project Structure
-
-qa-automation-framework/
 ### Project Structure
 
 ```text
