@@ -1,4 +1,5 @@
 [![API Tests](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/postman-api.yml/badge.svg)](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/postman-api.yml)
+[![Playwright API Tests](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/playwright-api.yml/badge.svg)](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/playwright-api.yml)
 # QA Automation Framework
 
 End-to-end test automation framework covering API automation using Postman and Playwright, and UI automation using Playwright.
@@ -16,15 +17,40 @@ End-to-end test automation framework covering API automation using Postman and P
 - CI-ready execution
 
 ## Tech Stack
-- Postman
-- Playwright
+- Postman/JavaScript
+- Playwright/TypeScript
 - Node.js
 - GitHub Actions (CI)
 
-## Project Structure
-postman/ → Postman collections, environments, data
-playwright/ → API and UI automation tests
-.github/ → CI workflows
+Project Structure
+
+qa-automation-framework/
+├── .github/
+│   └── workflows/
+│       ├── postman-api.yml
+│       └── playwright-api.yml
+├── postman/
+│   └── collections, environments, and test data
+├── api-playwright/
+│   ├── tests/
+│   ├── test-data/
+│   ├── helpers/
+│   ├── request-objects/
+│   ├── utils/
+│   └── package.json
+└── README.md
+
+Execution
+
+Postman API Tests
+
+Run collections using Postman Runner or Postman CLI.
+
+CI execution through GitHub Actions.
+
+HTML and JUnit reports are uploaded as workflow artifacts.
+
+Playwright API Tests
 
 
 ## Execution
