@@ -1,4 +1,5 @@
 [![API Tests](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/postman-api.yml/badge.svg)](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/postman-api.yml)
+
 [![Playwright API Tests](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/playwright-api.yml/badge.svg)](https://github.com/ValliammaiMe/qa-automation-framework/actions/workflows/playwright-api.yml)
 # QA Automation Framework
 
