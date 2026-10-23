@@ -43,8 +43,6 @@ qa-automation-framework/
 └── README.md
 ```
 
-Execution
-
 ## Execution
 - Postman: Runner / Postman CLI
 - Playwright: npm scripts
